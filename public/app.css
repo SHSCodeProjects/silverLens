@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+    --primary-blue: #1e2f5d; /* Darker primary blue for contrast */
+    --secondary-blue: #2c3d75;
+    --lighter-blue: #4b5e95; /* Slightly darker for better contrast */
+    --accent-color: #0b0b0b;
+    --neutral-color: #ffffff;
+    --white: #ffffff;
+    --light-gray: #f1f1f1;
+    --text-color: #222222;
+    --button-blue: #1e2f5d; /* Darker button blue for contrast */
+    --button-hover: #2f498a;
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.35); /* Increased shadow depth for better contrast */
+    --transition-speed: 0.3s;
+    --border-radius: 12px;
+  }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--neutral-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+header.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background-color: var(--primary-blue);
+  box-shadow: var(--shadow);
+  position: relative;
+  z-index: 1000;
+  flex-wrap: wrap;
+}
+
+header .logo h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 32px;
+  color: var(--white);
+  margin: 0;
+  letter-spacing: 1.5px;
+  transition: color var(--transition-speed);
+}
+
+header .logo h1:hover {
+  color: var(--light-gray);
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  background-color: var(--lighter-blue); /* Lighter shade of blue */
+  border: 1px solid var(--lighter-blue);
+  box-shadow: var(--shadow);
+  position: absolute;
+  left: 20px;
+  top: 100px;
+  height: 300px;
+  width: 250px;
+  z-index: 999;
+  overflow-y: auto;
+  border-radius: var(--border-radius); /* Add rounded edges */
+}
+
+.filter-container select,
+.filter-container input {
+  padding: 12px 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--light-gray);
+  transition: all var(--transition-speed);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.filter-container select:focus,
+.filter-container input:focus {
+  outline: none;
+  border-color: var(--button-blue);
+}
+
+.filter-container input::placeholder {
+  color: #777777;
+}
+
+.map-container {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.leaflet-bottom.leaflet-right {
+  right: 20px !important; /* Adjust map control to bottom-right */
+  bottom: 20px !important;
+  z-index: 9999; /* Ensure the controls are on top of other elements */
+}
+
+.logout-container {
+  display: flex;
+  align-items: center;
+}
+
+.logged-in-email {
+  color: var(--white);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+.profile-page-logout-button {
+  background-color: var(--button-blue);
+  color: var(--white);
+  padding: 12px 24px;
+  font-size: 16px;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-speed), transform var(--transition-speed);
+  box-shadow: var(--shadow);
+}
+
+.profile-page-logout-button:hover {
+  background-color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.profile-page-logout-button:active {
+  transform: scale(0.98);
+}
+
+.custom-marker {
+  background-color: #d9534f;
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  border: 2px solid var(--white);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-speed);
+}
+
+.custom-marker:hover {
+  transform: scale(1.3);
+}
+
+.custom-tooltip {
+  font-size: 14px;
+  color: var(--white);
+  background: rgba(0, 0, 0, 0.9);
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+.community-count {
+  margin-left: 20px;
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  color: var(--white);
+}
+
+.leaflet-control-zoom {
+  box-shadow: var(--shadow);
+}
+
+.leaflet-control-zoom a {
+  background-color: var(--neutral-color);
+  color: var(--primary-blue);
+  font-weight: bold;
+}
+
+.leaflet-control-zoom a:hover {
+  background-color: var(--light-gray);
+}
+
+.leaflet-bar a {
+  border-radius: var(--border-radius);
+}
+
+.leaflet-bar a:hover {
+  transform: scale(1.05);
+}
+
+/* Reset button styling to align with zoom controls */
+.reset-button-control {
+    background-color: var(--neutral-color);
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .reset-button-control:hover {
+    background-color: var(--light-gray);
+  }
+  
